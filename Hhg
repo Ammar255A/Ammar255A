@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بريف تصميم الجرافيك | Graphic Design Brief</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>بريف تصميم الجرافيك | Graphic Design Brief</h1>
+    <form id="briefForm">
+        <!-- Arabic & English Fields -->
+
+        <label for="projectName">ما هو اسم المشروع أو المنتج؟ | Project Name</label>
+        <input type="text" id="projectName" name="projectName" required>
+
+        <label for="projectDescription">وصف المشروع أو المنتج | Project Description</label>
+        <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+
+        <label>هل لديك شعار أو هوية بصرية؟ | Do you have a logo or brand identity?</label>
+        <input type="radio" name="hasLogo" value="نعم" required> نعم | Yes
+        <input type="radio" name="hasLogo" value="لا"> لا | No
+
+        <label for="projectObjective">ما الهدف الرئيسي الذي ترغب في تحقيقه؟ | Main Objective</label>
+        <select id="projectObjective" name="projectObjective" onchange="toggleOtherField('projectObjective', 'otherObjective')">
+            <option value="زيادة المبيعات">زيادة المبيعات | Increase Sales</option>
+            <option value="تحسين الوعي بالعلامة التجارية">تحسين الوعي بالعلامة التجارية | Improve Brand Awareness</option>
+            <option value="جذب جمهور جديد">جذب جمهور جديد | Attract New Audience</option>
+            <option value="ترويج منتج جديد">ترويج منتج جديد | Promote a New Product</option>
+            <option value="تحسين المبيعات عبر الإنترنت">تحسين المبيعات عبر الإنترنت | Enhance Online Sales</option>
+            <option value="أخرى">أخرى | Other</option>
+        </select>
+        <input type="text" id="otherObjective" name="otherObjective" placeholder="إذا اخترت أخرى، يرجى التحديد | If Other, please specify" style="display:none;">
+
+        <label for="targetAudience">من هو جمهورك المستهدف؟ | Target Audience</label>
+        <textarea id="targetAudience" name="targetAudience" rows="3" required></textarea>
+
+        <label for="ageGroup">ما هي الفئة العمرية المستهدفة؟ | Target Age Group</label>
+        <select id="ageGroup" name="ageGroup">
+            <option value="الأطفال">الأطفال | Children</option>
+            <option value="المراهقون">المراهقون | Teenagers</option>
+            <option value="الكبار">الكبار | Adults</option>
+            <option value="كبار السن">كبار السن | Seniors</option>
+            <option value="أخرى">أخرى | Other</option>
+        </select>
+
+        <label for="gender">ما هو جنس جمهورك المستهدف؟ | Target Gender</label>
+        <select id="gender" name="gender">
+            <option value="كلاهما">كلاهما | Both</option>
+            <option value="ذكور">ذكور | Male</option>
+            <option value="إناث">إناث | Female</option>
+            <option value="أخرى">أخرى | Other</option>
+        </select>
+
+        <label for="location">ما هي المنطقة الجغرافية المستهدفة؟ | Target Location</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="competitors">من هم منافسوك الرئيسيون؟ | Main Competitors</label>
+        <textarea id="competitors" name="competitors" rows="3"></textarea>
+
+        <label for="uniqueSellingPoint">ما هي النقطة الفريدة لمنتجك أو خدمتك؟ | Unique Selling Point</label>
+        <textarea id="uniqueSellingPoint" name="uniqueSellingPoint" rows="3" required></textarea>
+
+        <label for="preferredColors">هل لديك ألوان أو خطوط مفضلة؟ | Preferred Colors or Fonts</label>
+        <input type="text" id="preferredColors" name="preferredColors">
+
+        <label for="designStyle">ما هو الأسلوب التصميمي الذي تفضله؟ | Preferred Design Style</label>
+        <select id="designStyle" name="designStyle" onchange="toggleOtherField('designStyle', 'otherDesignStyle')">
+            <option value="حديث">حديث | Modern</option>
+            <option value="كلاسيكي">كلاسيكي | Classic</option>
+            <option value="بسيط">بسيط | Minimalist</option>
+            <option value="جريء">جريء | Bold</option>
+            <option value="مبسط">مبسط | Simplistic</option>
+            <option value="فني">فني | Artistic</option>
+            <option value="أخرى">أخرى | Other</option>
+        </select>
+        <input type="text" id="otherDesignStyle" name="otherDesignStyle" placeholder="إذا اخترت أخرى، يرجى التحديد | If Other, please specify" style="display:none;">
+
+        <label for="requiredFormats">ما هي التنسيقات المطلوبة للتصميم؟ | Required Design Formats</label>
+        <input type="text" id="requiredFormats" name="requiredFormats" placeholder="مثل: PNG، JPEG، PDF | e.g. PNG, JPEG, PDF">
+
+        <label for="deadline">ما هو الموعد النهائي المطلوب؟ | Deadline</label>
+        <input type="date" id="deadline" name="deadline">
+
+        <label for="budget">ما هي ميزانيتك المقدرة للمشروع؟ | Estimated Budget</label>
+        <select id="budget" name="budget" onchange="toggleOtherField('budget', 'otherBudget')">
+            <option value="أقل من 100 دولار">أقل من 100 دولار | Less than $100</option>
+            <option value="100-500 دولار">100-500 دولار | $100-500</option>
+            <option value="500-1000 دولار">500-1000 دولار | $500-1000</option>
+            <option value="أكثر من 1000 دولار">أكثر من 1000 دولار | More than $1000</option>
+            <option value="أخرى">أخرى | Other</option>
+        </select>
+        <input type="text" id="otherBudget" name="otherBudget" placeholder="إذا اخترت أخرى، يرجى التحديد | If Other, please specify" style="display:none;">
+
+        <label for="platformsUsed">أين سيتم استخدام التصميم؟ | Design Usage</label>
+        <select id="platformsUsed" name="platformsUsed" onchange="toggleOtherField('platformsUsed', 'otherPlatform')">
+            <option value="مطبوعات">مطبوعات | Print</option>
+            <option value="وسائل التواصل الاجتماعي">وسائل التواصل الاجتماعي | Social Media</option>
+            <option value="موقع إلكتروني">موقع إلكتروني | Website</option>
+            <option value="عروض تقديمية">عروض تقديمية | Presentations</option>
+            <option value="إعلانات">إعلانات | Advertisements</option>
+            <option value="أخرى">أخرى | Other</option>
+        </select>
+        <input type="text" id="otherPlatform" name="otherPlatform" placeholder="إذا اخترت أخرى، يرجى التحديد | If Other, please specify" style="display:none;">
+
+        <label for="contentProvided">هل ستقوم بتوفير المحتوى مثل النصوص أو الصور؟ | Will you provide content such as text or images?</label>
+        <input type="radio" name="contentProvided" value="نعم" required> نعم | Yes
+        <input type="radio" name="contentProvided" value="لا"> لا | No
+
+        <label for="revisions">كم عدد التعديلات التي تحتاجها؟ | Revisions</label>
+        <input type="number" id="revisions" name="revisions" required>
+
+        <label for="inspiration">هل لديك أمثلة على تصميمات تعجبك؟ | Do you have examples of designs you like?</label>
+        <textarea id="inspiration" name="inspiration" rows="3"></textarea>
+
+        <label for="existingMaterials">هل لديك مواد موجودة تريد استخدامها؟ | Do you have existing materials you want to use?</label>
+        <textarea id="existingMaterials" name="existingMaterials" rows="3"></textarea>
+
+        <label for="projectBenefits">ما هي الفوائد الرئيسية التي ترغب في تحقيقها من هذا المشروع؟ | What are the main benefits you hope to achieve from this project?</label>
+        <textarea id="projectBenefits" name="projectBenefits" rows="3"></textarea>
+
+        <label for="toneAndVoice">ما هو النغمة والصوت الذي ترغب في استخدامه في التصميم؟ | What tone and voice do you want to use in the design?</label>
+        <textarea id="toneAndVoice" name="toneAndVoice" rows="3"></textarea>
+
+        <label for="approvalProcess
